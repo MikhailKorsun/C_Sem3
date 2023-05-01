@@ -3,15 +3,19 @@
 // 14212 -> нет
 // 12821 -> да
 // 23432 -> да
-int[] arr = { 1, 5, 4, 3, 2};
-void PrintArray(int[] array)
+Console.WriteLine("Введите пятизначное число: ");
+int number = Convert.ToInt32(Console.ReadLine());
+if (number >= 10000 && number <= 99999)
 {
-    int count = array.Length;
-
-    for (int i = 0; i < count; i++)
+    if ((number / 10000) == (number % 10))
     {
-        Console.Write($"{array[i]} ");
+        if ((number / 1000)-((number/10000)*10) == ((number % 100)-(number % 10))/10)
+            Console.WriteLine("Число является палиндромом");
+        else
+            Console.WriteLine("Число не является палиндромом"); 
     }
-    Console.WriteLine();
+    else
+        Console.WriteLine("Число не является палиндромом");
 }
-PrintArray(arr);
+else
+    Console.WriteLine("Вы ввели неподходящее число для проверки");
